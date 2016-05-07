@@ -4,9 +4,159 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SearchSumsPairsNumbersEqualsX.UI"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        mc:Ignorable="d" Title="Поиск всех пар чисел, сумма которых равна заданному числу X" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="Images/Logotype.png"
+        Background="#FF447784" MinWidth="900" MinHeight="700" Width="900" Height="700" >
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="2.5*" />
+            <RowDefinition Height="1.5*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="3*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="1" Source="Images/Logotype.png" Margin="0,5,5,5" />
+            <Label Grid.Column="2" Content="Поиск всех пар чисел, сумма которых равна заданному числу X" VerticalAlignment="Center" HorizontalAlignment="Center"
+                   FontSize="20" Foreground="White" FontWeight="DemiBold" Margin="5,0,0,0" />
+        </Grid>
+
+        <Border Grid.Row="1" Grid.Column="0" Grid.RowSpan="3" Margin="5,0,5,0" Background="White">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Content="Исходная коллекция чисел:" FontSize="14" FontWeight="DemiBold" VerticalAlignment="Center" />
+                <Separator Grid.Row="1" />
+                <RichTextBox Name="richtextboxInputCollection" Grid.Row="2" FontSize="14" BorderThickness="0" ScrollViewer.CanContentScroll="True" />
+                <Separator Grid.Row="3" />
+                <Grid Grid.Row="4" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Content="Количество чисел в коллекции:" FontSize="14" FontStyle="Italic" Foreground="Green"
+                           HorizontalAlignment="Right" VerticalAlignment="Center" />
+                    <Label Name="labelCountElementsInCollection" Grid.Column="1" Content="0" FontSize="14" FontStyle="Italic" FontWeight="DemiBold" Margin="0,0,5,0"
+                           Foreground="Green" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Grid>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="1" Margin="5,0,5,0" Background="White">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.ColumnSpan="4" Content="Загрузка тестовых сценариев:" FontSize="14" FontWeight="DemiBold" VerticalAlignment="Center" Margin="0,0,0,2" />
+                <Separator Grid.Row="1" Grid.ColumnSpan="4" Margin="0,0,0,5" />
+                <Button Name="buttonLoadTestScenarioOne" Grid.Row="2" Grid.Column="1" Content="Загрузить тестовый сценарий №1" Margin="5,0,5,5" />
+                <Image Name="imageHelpTestScenarionOne" Grid.Row="2" Grid.Column="2" Source="Images/Help.png" HorizontalAlignment="Left" Margin="15,0,0,5"/>
+                <Button Name="buttonLoadTestScenarioTwo" Grid.Row="3" Grid.Column="1" Content="Загрузить тестовый сценарий №2" Margin="5,0,5,5" />
+                <Image Name="imageHelpTestScenarionTwo" Grid.Row="3" Grid.Column="2" Source="Images/Help.png" HorizontalAlignment="Left" Margin="15,0,0,5"/>
+                <Button Name="buttonLoadTestScenarioThree" Grid.Row="4" Grid.Column="1" Content="Загрузить тестовый сценарий №3" Margin="5,0,5,5" />
+                <Image Name="imageHelpTestScenarionThree" Grid.Row="4" Grid.Column="2" Source="Images/Help.png" HorizontalAlignment="Left" Margin="15,0,0,5" />
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="2" Grid.Column="2" Margin="5,5,5,0" Background="White">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label Content="Формирование псевдослучайной коллекции:" FontSize="14" FontWeight="DemiBold" VerticalAlignment="Center" />
+                <Separator Grid.Row="1" />
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Минимальное число:" Margin="5,0,0,0" VerticalAlignment="Center" />
+                    <TextBox Grid.Column="1" Name="textboxMinimumRandomValue" Text="-10" VerticalAlignment="Center" Margin="5,0,0,0" />
+                    <Label Grid.Column="2" Content="Максимальное число:" Margin="5,0,0,0" VerticalAlignment="Center" />
+                    <TextBox Grid.Column="3" Name="textboxMaximumRandomValue" Text="10" VerticalAlignment="Center" Margin="5,0,5,0" />
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Количество псевдослучайных чисел в коллекции:" Margin="5,0,0,0" VerticalAlignment="Center" />
+                    <TextBox Grid.Column="1" Name="textboxCountElementsInRandomCollection" Text="500" VerticalAlignment="Center" Margin="5,0,5,0" />
+                </Grid>
+                <Grid Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <RadioButton Name="radiobuttonOnlyIntegerValue" GroupName="CreateRandomCollection" Content="Целочисленная коллекция" Margin="10,0,0,0" VerticalAlignment="Center"
+                                 IsChecked="True"/>
+                    <RadioButton Name="radiobuttonOnlyDoubleValue" Grid.Column="1" GroupName="CreateRandomCollection" Content="Числа с плавающей точкой" Margin="10,0,10,0"
+                                 VerticalAlignment="Center" />
+                </Grid>
+                <Grid Grid.Row="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Name="buttonCreateRandomCollection" Grid.Column="1" Content="Сформировать коллекцию" Margin="5,0,5,5" />
+                </Grid>
+                
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="3" Grid.Column="2" Margin="5,5,5,0" Background="White">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label Content="Заданное число X:" FontSize="14" FontWeight="DemiBold" VerticalAlignment="Center" />
+                <Separator Grid.Row="1" />
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Name="textboxValueX" Grid.Column="0" Text="25" VerticalAlignment="Center" Margin="5,0,5,0" FontWeight="DemiBold" FontSize="30" />
+                    <Button Name="buttonSearchSumsPairsNumbers" Grid.Column="1" Content="ПОИСК" Margin="5,5,5,5" VerticalAlignment="Center" Padding="15,11,15,11" FontWeight="DemiBold"
+                            FontSize="14" />
+                </Grid>
+            </Grid>
+        </Border>
+
     </Grid>
 </Window>

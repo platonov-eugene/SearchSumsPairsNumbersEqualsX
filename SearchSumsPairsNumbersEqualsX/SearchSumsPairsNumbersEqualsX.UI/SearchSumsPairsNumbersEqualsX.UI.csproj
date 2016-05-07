@@ -120,9 +120,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Logotype.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1</ProductName>
@@ -131,6 +128,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Logotype.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logotype.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Help.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
