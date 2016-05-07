@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 using System.Windows;
 
 [assembly: AssemblyTitle("SearchSumsPairsNumbersEqualsX.UI")]
-[assembly: AssemblyDescription("Графический интерфейс приложения")]
+[assembly: AssemblyDescription("Пользовательский интерфейс приложения")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("SearchSumsPairsNumbersEqualsX")]

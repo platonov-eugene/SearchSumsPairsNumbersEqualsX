@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("SearchSumsPairsNumbersEqualsX.UI.Tests")]
-[assembly: AssemblyDescription("Тестирование графического интерфейса пользователя")]
+[assembly: AssemblyDescription("Тестирование пользовательского интерфейса приложения")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("SearchSumsPairsNumbersEqualsX")]
