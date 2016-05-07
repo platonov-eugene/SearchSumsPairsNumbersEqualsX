@@ -3,3 +3,7 @@
 ################################################################################
 
 /SearchSumsPairsNumbersEqualsX/.vs/SearchSumsPairsNumbersEqualsX/v14
+/SearchSumsPairsNumbersEqualsX/SearchSumsPairsNumbersEqualsX.Logic/obj/Debug
+/SearchSumsPairsNumbersEqualsX/SearchSumsPairsNumbersEqualsX.Logic.Tests/obj/Debug
+/SearchSumsPairsNumbersEqualsX/SearchSumsPairsNumbersEqualsX.UI/obj/Debug
+/SearchSumsPairsNumbersEqualsX/SearchSumsPairsNumbersEqualsX.UI.Tests/obj/Debug
