@@ -24,7 +24,7 @@
         </member>
         <member name="T:SearchSumsPairsNumbersEqualsX.UI.MainWindow">
             <summary>
-            Логика взаимодействия для MainWindow.xaml
+            Форма приложения
             </summary>
             <summary>
             MainWindow
@@ -32,7 +32,7 @@
         </member>
         <member name="M:SearchSumsPairsNumbersEqualsX.UI.MainWindow.#ctor">
             <summary>
-            Конструктор по умолчанию
+            Конструктор формы приложения по умолчанию
             </summary>
         </member>
         <member name="M:SearchSumsPairsNumbersEqualsX.UI.MainWindow.InitializeComponent">

@@ -83,18 +83,18 @@
                 <Button Name="buttonLoadTestScenarioNumberOne" Grid.Row="2" Grid.Column="1" Content="Загрузить тестовый сценарий №1"
                         Margin="5,0,5,5" />
                 <Image Name="imageHelpTestScenarioNumberOne" Grid.Row="2" Grid.Column="2" Source="Images/HelpButtonForMouseLeave.png"
-                       HorizontalAlignment="Left" Margin="15,0,0,5" MouseLeave="imageHelpTestScenarioNumberOne_MouseLeave"
-                       MouseEnter="imageHelpTestScenarioNumberOne_MouseEnter" />
+                       HorizontalAlignment="Left" Margin="15,0,0,5" MouseLeave="SetImageOnHelpTestScenario"
+                       MouseEnter="SetImageOnHelpTestScenario" />
                 <Button Name="buttonLoadTestScenarioNumberTwo" Grid.Row="3" Grid.Column="1" Content="Загрузить тестовый сценарий №2"
                         Margin="5,0,5,5" />
                 <Image Name="imageHelpTestScenarioNumberTwo" Grid.Row="3" Grid.Column="2" Source="Images/HelpButtonForMouseLeave.png"
-                       HorizontalAlignment="Left" Margin="15,0,0,5" MouseLeave="imageHelpTestScenarioNumberTwo_MouseLeave"
-                       MouseEnter="imageHelpTestScenarioNumberTwo_MouseEnter" />
+                       HorizontalAlignment="Left" Margin="15,0,0,5" MouseLeave="SetImageOnHelpTestScenario"
+                       MouseEnter="SetImageOnHelpTestScenario" />
                 <Button Name="buttonLoadTestScenarioNumberThree" Grid.Row="4" Grid.Column="1" Content="Загрузить тестовый сценарий №3"
                         Margin="5,0,5,5" />
                 <Image Name="imageHelpTestScenarioNumberThree" Grid.Row="4" Grid.Column="2" Source="Images/HelpButtonForMouseLeave.png"
-                       HorizontalAlignment="Left" Margin="15,0,0,5" MouseEnter="imageHelpTestScenarioNumberThree_MouseEnter"
-                       MouseLeave="imageHelpTestScenarioNumberThree_MouseLeave" />
+                       HorizontalAlignment="Left" Margin="15,0,0,5" MouseEnter="SetImageOnHelpTestScenario"
+                       MouseLeave="SetImageOnHelpTestScenario" />
             </Grid>
         </Border>
 
@@ -119,9 +119,11 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Label Content="Минимальное число:" Margin="5,0,0,0" VerticalAlignment="Center" />
-                    <TextBox Grid.Column="1" Name="textboxMinimumRandomValue" Text="-10" VerticalAlignment="Center" Margin="5,0,0,0" />
+                    <TextBox Grid.Column="1" Name="textboxMinimumRandomValue" Text="-10" VerticalAlignment="Center" Margin="5,0,0,0" MaxLength="9" PreviewTextInput="PreviewTextInputToMatchFloatFormat"
+                             PreviewKeyDown="PreviewKeyDownToMatchNumberFormat" CommandManager.PreviewExecuted="PreviewExecutedCommandCopyCutPaste" ContextMenu="{x:Null}" />
                     <Label Grid.Column="2" Content="Максимальное число:" Margin="5,0,0,0" VerticalAlignment="Center" />
-                    <TextBox Grid.Column="3" Name="textboxMaximumRandomValue" Text="10" VerticalAlignment="Center" Margin="5,0,5,0" />
+                    <TextBox Grid.Column="3" Name="textboxMaximumRandomValue" Text="10" VerticalAlignment="Center" Margin="5,0,5,0" MaxLength="9" PreviewTextInput="PreviewTextInputToMatchFloatFormat"
+                             PreviewKeyDown="PreviewKeyDownToMatchNumberFormat" CommandManager.PreviewExecuted="PreviewExecutedCommandCopyCutPaste" ContextMenu="{x:Null}" />
                 </Grid>
                 <Grid Grid.Row="3">
                     <Grid.ColumnDefinitions>
@@ -129,7 +131,9 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Label Content="Количество псевдослучайных чисел в коллекции:" Margin="5,0,0,0" VerticalAlignment="Center" />
-                    <TextBox Grid.Column="1" Name="textboxCountNumbersInRandomCollection" Text="500" VerticalAlignment="Center" Margin="5,0,5,0" />
+                    <TextBox Grid.Column="1" Name="textboxCountNumbersInRandomCollection" Text="500" VerticalAlignment="Center" Margin="5,0,5,0" MaxLength="9"
+                             PreviewTextInput="PreviewTextInputToMatchIntegerFormat" PreviewKeyDown="PreviewKeyDownToMatchNumberFormat" CommandManager.PreviewExecuted="PreviewExecutedCommandCopyCutPaste"
+                             ContextMenu="{x:Null}" />
                 </Grid>
                 <Grid Grid.Row="4">
                     <Grid.ColumnDefinitions>
@@ -168,7 +172,8 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <TextBox Name="textboxPredeterminatedNumberX" Text="25" VerticalAlignment="Center" Margin="5,0,5,0" FontWeight="DemiBold"
-                             FontSize="30" />
+                             FontSize="30" MaxLength="9" PreviewTextInput="PreviewTextInputToMatchFloatFormat" PreviewKeyDown="PreviewKeyDownToMatchNumberFormat"
+                             CommandManager.PreviewExecuted="PreviewExecutedCommandCopyCutPaste" ContextMenu="{x:Null}" />
                     <Button Name="buttonSearchSumsPairsNumbersEqualsX" Grid.Column="1" Content="ПОИСК" Margin="0,5,5,5" VerticalAlignment="Center"
                             Padding="20,11,20,11" FontWeight="DemiBold" FontSize="14" Foreground="Blue" />
                 </Grid>
