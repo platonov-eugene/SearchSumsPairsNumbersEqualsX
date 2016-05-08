@@ -133,7 +133,8 @@
     <Resource Include="Images\Logotype.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Help.png" />
+    <Resource Include="Images\HelpButtonForMouseEnter.png" />
+    <Resource Include="Images\HelpButtonForMouseLeave.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

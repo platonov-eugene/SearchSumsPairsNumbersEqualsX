@@ -27,5 +27,35 @@ namespace SearchSumsPairsNumbersEqualsX.UI
         {
             InitializeComponent();
         }
+
+        private void imageHelpTestScenarioNumberOne_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imageHelpTestScenarioNumberOne.Source = new BitmapImage(new Uri(@"Images/HelpButtonForMouseEnter.png", UriKind.Relative));
+        }
+
+        private void imageHelpTestScenarioNumberOne_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imageHelpTestScenarioNumberOne.Source = new BitmapImage(new Uri(@"Images/HelpButtonForMouseLeave.png", UriKind.Relative));
+        }
+
+        private void imageHelpTestScenarioNumberTwo_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imageHelpTestScenarioNumberTwo.Source = new BitmapImage(new Uri(@"Images/HelpButtonForMouseEnter.png", UriKind.Relative));
+        }
+
+        private void imageHelpTestScenarioNumberTwo_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imageHelpTestScenarioNumberTwo.Source = new BitmapImage(new Uri(@"Images/HelpButtonForMouseLeave.png", UriKind.Relative));
+        }
+
+        private void imageHelpTestScenarioNumberThree_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imageHelpTestScenarioNumberThree.Source = new BitmapImage(new Uri(@"Images/HelpButtonForMouseEnter.png", UriKind.Relative));
+        }
+
+        private void imageHelpTestScenarioNumberThree_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imageHelpTestScenarioNumberThree.Source = new BitmapImage(new Uri(@"Images/HelpButtonForMouseLeave.png", UriKind.Relative));
+        }
     }
 }
