@@ -32,6 +32,8 @@ namespace SearchSumsPairsNumbersEqualsX.UI
             textboxSourceCollectionOfNumbers.Focus();
         }
 
+        #region Загрузка тестовых сценариев
+
         private void SetImageOnHelpTestScenario(object sender, MouseEventArgs e)
         {
             Image image = sender as Image;
@@ -41,6 +43,77 @@ namespace SearchSumsPairsNumbersEqualsX.UI
             else
                 image.Source = new BitmapImage(new Uri(@"Images/HelpButtonForMouseLeave.png", UriKind.Relative));
         }
+
+        private void LoadTestScenarioNumberOne(object sender, RoutedEventArgs e)
+        {
+            Cursor = Cursors.Wait;
+            textboxSourceCollectionOfNumbers.Text = "10 9 8 7 6 5 4 3 2 1 ";
+            textboxPredeterminatedNumberX.Text = "5";
+
+            CountNumbersInSourceCollection(textboxSourceCollectionOfNumbers);
+            ClearAreaFoundPairsNumbers();
+            textboxSourceCollectionOfNumbers.Focus();
+            Cursor = Cursors.Arrow;
+        }
+
+        private void HelpTestScenarioNumberOne(object sender, MouseButtonEventArgs e)
+        {
+            string messageBoxCaption = "Описание значений тестового сценария №1";
+            string messageBoxText = String.Format("Исходная коллекция чисел: {0}.\n\nЗаданное число X: {1}.\n\nОжидаемые пары чисел: {2}.",
+                                                  "10 9 8 7 6 5 4 3 2 1",
+                                                  "5",
+                                                  "[1 + 4], [2 + 3], [3 + 2], [4 + 1]");
+
+            MessageBox.Show(messageBoxText, messageBoxCaption, MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void LoadTestScenarioNumberTwo(object sender, RoutedEventArgs e)
+        {
+            Cursor = Cursors.Wait;
+            textboxSourceCollectionOfNumbers.Text = "5 4 3 2 1 0 -1 -2 -3 -4 -5 ";
+            textboxPredeterminatedNumberX.Text = "3";
+
+            CountNumbersInSourceCollection(textboxSourceCollectionOfNumbers);
+            ClearAreaFoundPairsNumbers();
+            textboxSourceCollectionOfNumbers.Focus();
+            Cursor = Cursors.Arrow;
+        }
+
+        private void HelpTestScenarioNumberTwo(object sender, MouseButtonEventArgs e)
+        {
+            string messageBoxCaption = "Описание значений тестового сценария №2";
+            string messageBoxText = String.Format("Исходная коллекция чисел: {0}.\n\nЗаданное число X: {1}.\n\nОжидаемые пары чисел: {2}.",
+                                                  "5 4 3 2 1 0 -1 -2 -3 -4 -5",
+                                                  "3",
+                                                  "[-2 + 5], [-1 + 4], [0 + 3], [1 + 2], [2 + 1], [3 + 0], [4 + -1], [5 + -2]");
+
+            MessageBox.Show(messageBoxText, messageBoxCaption, MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void LoadTestScenarioNumberThree(object sender, RoutedEventArgs e)
+        {
+            Cursor = Cursors.Wait;
+            textboxSourceCollectionOfNumbers.Text = "0.5 0.25 0.75 0.5 1 0 1.25 -0.25 1.5 -0.5 ";
+            textboxPredeterminatedNumberX.Text = "1";
+
+            CountNumbersInSourceCollection(textboxSourceCollectionOfNumbers);
+            ClearAreaFoundPairsNumbers();
+            textboxSourceCollectionOfNumbers.Focus();
+            Cursor = Cursors.Arrow;
+        }
+
+        private void HelpTestScenarioNumberThree(object sender, MouseButtonEventArgs e)
+        {
+            string messageBoxCaption = "Описание значений тестового сценария №3";
+            string messageBoxText = String.Format("Исходная коллекция чисел: {0}.\n\nЗаданное число X: {1}.\n\nОжидаемые пары чисел: {2}.",
+                                                  "0.5 0.25 0.75 0.5 1 0 1.25 -0.25 1.5 -0.5",
+                                                  "1",
+                                                  "[-0.5 + 1.5], [-0.25 + 1.25], [0 + 1], [0.25 + 0.75], [0.5 + 0.5], [0.5 + 0.5], [0.75 + 0.25], [1 + 0], [1.25 + -0.25], [1.5 + -0.5]");
+
+            MessageBox.Show(messageBoxText, messageBoxCaption, MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        #endregion
 
         private void DisableSelectionTextInTextBoxes(object sender, MouseEventArgs e)
         {
@@ -323,42 +396,6 @@ namespace SearchSumsPairsNumbersEqualsX.UI
             
             border.Child = grid;
             return border;
-        }
-
-        private void LoadTestScenarioNumberOne(object sender, RoutedEventArgs e)
-        {
-            Cursor = Cursors.Wait;
-            textboxSourceCollectionOfNumbers.Text = "10 9 8 7 6 5 4 3 2 1 ";
-            textboxPredeterminatedNumberX.Text = "5";
-
-            CountNumbersInSourceCollection(textboxSourceCollectionOfNumbers);
-            ClearAreaFoundPairsNumbers();
-            textboxSourceCollectionOfNumbers.Focus();
-            Cursor = Cursors.Arrow;
-        }
-
-        private void LoadTestScenarioNumberTwo(object sender, RoutedEventArgs e)
-        {
-            Cursor = Cursors.Wait;
-            textboxSourceCollectionOfNumbers.Text = "5 4 3 2 1 0 -1 -2 -3 -4 -5 ";
-            textboxPredeterminatedNumberX.Text = "3";
-
-            CountNumbersInSourceCollection(textboxSourceCollectionOfNumbers);
-            ClearAreaFoundPairsNumbers();
-            textboxSourceCollectionOfNumbers.Focus();
-            Cursor = Cursors.Arrow;
-        }
-
-        private void LoadTestScenarioNumberThree(object sender, RoutedEventArgs e)
-        {
-            Cursor = Cursors.Wait;
-            textboxSourceCollectionOfNumbers.Text = "0.5 0.25 0.75 0.5 1 0 1.25 -0.25 1.5 -0.5 ";
-            textboxPredeterminatedNumberX.Text = "1";
-
-            CountNumbersInSourceCollection(textboxSourceCollectionOfNumbers);
-            ClearAreaFoundPairsNumbers();
-            textboxSourceCollectionOfNumbers.Focus();
-            Cursor = Cursors.Arrow;
         }
     }
 }

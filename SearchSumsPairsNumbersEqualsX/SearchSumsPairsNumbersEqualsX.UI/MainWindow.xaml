@@ -82,13 +82,13 @@
                 <Separator Grid.Row="1" Grid.ColumnSpan="4" Margin="0,0,0,5" />
                 <Button Name="buttonLoadTestScenarioNumberOne" Grid.Row="2" Grid.Column="1" Content="Загрузить тестовый сценарий №1" Margin="5,0,5,5" Click="LoadTestScenarioNumberOne" />
                 <Image Name="imageHelpTestScenarioNumberOne" Grid.Row="2" Grid.Column="2" Source="Images/HelpButtonForMouseLeave.png" HorizontalAlignment="Left" Margin="15,0,0,5"
-                       MouseLeave="SetImageOnHelpTestScenario" MouseEnter="SetImageOnHelpTestScenario" MaxHeight="32" MaxWidth="32" />
+                       MouseLeave="SetImageOnHelpTestScenario" MouseEnter="SetImageOnHelpTestScenario" MaxHeight="32" MaxWidth="32" MouseDown="HelpTestScenarioNumberOne" />
                 <Button Name="buttonLoadTestScenarioNumberTwo" Grid.Row="3" Grid.Column="1" Content="Загрузить тестовый сценарий №2" Margin="5,0,5,5" Click="LoadTestScenarioNumberTwo" />
                 <Image Name="imageHelpTestScenarioNumberTwo" Grid.Row="3" Grid.Column="2" Source="Images/HelpButtonForMouseLeave.png" HorizontalAlignment="Left" Margin="15,0,0,5"
-                       MouseLeave="SetImageOnHelpTestScenario" MouseEnter="SetImageOnHelpTestScenario" MaxHeight="32" MaxWidth="32" />
+                       MouseLeave="SetImageOnHelpTestScenario" MouseEnter="SetImageOnHelpTestScenario" MaxHeight="32" MaxWidth="32" MouseDown="HelpTestScenarioNumberTwo" />
                 <Button Name="buttonLoadTestScenarioNumberThree" Grid.Row="4" Grid.Column="1" Content="Загрузить тестовый сценарий №3" Margin="5,0,5,5" Click="LoadTestScenarioNumberThree" />
                 <Image Name="imageHelpTestScenarioNumberThree" Grid.Row="4" Grid.Column="2" Source="Images/HelpButtonForMouseLeave.png" HorizontalAlignment="Left" Margin="15,0,0,5"
-                       MouseEnter="SetImageOnHelpTestScenario" MouseLeave="SetImageOnHelpTestScenario" MaxHeight="32" MaxWidth="32" />
+                       MouseEnter="SetImageOnHelpTestScenario" MouseLeave="SetImageOnHelpTestScenario" MaxHeight="32" MaxWidth="32" MouseDown="HelpTestScenarioNumberThree" />
             </Grid>
         </Border>
 
