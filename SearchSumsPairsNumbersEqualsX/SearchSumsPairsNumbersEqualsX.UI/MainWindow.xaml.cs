@@ -305,32 +305,42 @@ namespace SearchSumsPairsNumbersEqualsX.UI
         private void ClearAreaFoundPairsNumbers()
         {
             stackpanelFoundPairsNumbers.Children.Clear();
+            labelSearchTime.Content = "00:00:00.000";
             labelNumberFoundPairsNumbers.Content = 0;
         }
 
         private void SearchSumsPairsNumbersEqualsX(object sender, RoutedEventArgs e)
         {
             textboxPredeterminatedNumberX.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFABADB3"));
-            textboxSourceCollectionOfNumbers.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFABADB3"));
 
             if (textboxPredeterminatedNumberX.Text.Length == 0)
                 textboxPredeterminatedNumberX.BorderBrush = Brushes.Red;
-            else if (textboxSourceCollectionOfNumbers.Text.Length == 0)
-                textboxSourceCollectionOfNumbers.BorderBrush = Brushes.Red;
-            else
+            else if (textboxSourceCollectionOfNumbers.Text.Length != 0)
             {
                 Cursor = Cursors.Wait;
+
+                DateTime startTime = DateTime.Now;
                 ClearAreaFoundPairsNumbers();
 
                 SearchEngineSumsPairsNumbers searchEngineSumsPairsNumbers = new SearchEngineSumsPairsNumbers(textboxSourceCollectionOfNumbers.Text);
                 List<Tuple<decimal, decimal>> foundPairsNumbers = searchEngineSumsPairsNumbers.EqualsX(textboxPredeterminatedNumberX.Text);
-
+                
                 foreach (Tuple<decimal, decimal> sumPairsNumbers in foundPairsNumbers)
                     stackpanelFoundPairsNumbers.Children.Add(CreateUserControlForSumPairsNumbers(sumPairsNumbers.Item1, sumPairsNumbers.Item2));
 
                 labelNumberFoundPairsNumbers.Content = foundPairsNumbers.Count;
+
+                DateTime endTime = DateTime.Now;
+                labelSearchTime.Content = (endTime - startTime).ToString(@"hh\:mm\:ss\.fff");
+                
                 Cursor = Cursors.Arrow;
             }
+        }
+
+        private void SearchSumsPairsNumbersEqualsXByKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                SearchSumsPairsNumbersEqualsX(this, null);
         }
 
         private Border CreateUserControlForSumPairsNumbers(decimal firstNumber, decimal secondNumber)

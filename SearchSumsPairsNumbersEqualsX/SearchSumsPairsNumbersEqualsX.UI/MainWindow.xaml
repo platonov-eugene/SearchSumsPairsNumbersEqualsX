@@ -167,7 +167,7 @@
                     </Grid.ColumnDefinitions>
                     <TextBox Name="textboxPredeterminatedNumberX" Text="5" VerticalAlignment="Center" Margin="5,0,5,0" FontWeight="DemiBold" FontSize="30" MaxLength="9"
                              PreviewTextInput="PreviewTextInputToMatchFloatFormat" PreviewKeyDown="PreviewKeyDownToMatchNumberFormat" CommandManager.PreviewExecuted="PreviewExecutedCommandCopyCutPaste"
-                             ContextMenu="{x:Null}" AllowDrop="False" IsUndoEnabled="False" LostFocus="AddingFinalZeroInNumberFormat" />
+                             ContextMenu="{x:Null}" AllowDrop="False" IsUndoEnabled="False" LostFocus="AddingFinalZeroInNumberFormat" KeyDown="SearchSumsPairsNumbersEqualsXByKeyDown" />
                     <Button Name="buttonSearchSumsPairsNumbersEqualsX" Grid.Column="1" Content="ПОИСК" Margin="0,5,5,5" VerticalAlignment="Center" Padding="20,11,20,11" FontWeight="DemiBold"
                             FontSize="14" Foreground="Blue" Click="SearchSumsPairsNumbersEqualsX" />
                 </Grid>
@@ -202,7 +202,7 @@
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <Label Content="Время поиска:" FontSize="14" FontStyle="Italic" Foreground="Green" HorizontalAlignment="Right" VerticalAlignment="Center" />
-                    <Label Name="labelSearchTime" Grid.Column="1" Content="00.00.00.000" FontSize="14" FontStyle="Italic" FontWeight="DemiBold" Margin="0,0,0,0" Foreground="Green"
+                    <Label Name="labelSearchTime" Grid.Column="1" Content="00:00:00.000" FontSize="14" FontStyle="Italic" FontWeight="DemiBold" Margin="0,0,0,0" Foreground="Green"
                            HorizontalAlignment="Center" VerticalAlignment="Center" />
                     <Label Grid.Column="3" Content="Количество найденных пар чисел:" FontSize="14" FontStyle="Italic" Foreground="Green" HorizontalAlignment="Right" VerticalAlignment="Center" />
                     <Label Name="labelNumberFoundPairsNumbers" Grid.Column="4" Content="0" FontSize="14" FontStyle="Italic" FontWeight="DemiBold" Margin="0,0,5,0" Foreground="Green"
