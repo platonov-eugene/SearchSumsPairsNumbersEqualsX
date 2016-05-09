@@ -7,6 +7,4 @@
 
 ##### Структура файла решения:
 1. Проект SearchSumsPairsNumbersEqualsX.Logic;
-2. Проект SearchSumsPairsNumbersEqualsX.Logic.Tests;
-3. Проект SearchSumsPairsNumbersEqualsX.UI;
-4. Проект SearchSumsPairsNumbersEqualsX.UI.Tests.
+2. Проект SearchSumsPairsNumbersEqualsX.UI.
