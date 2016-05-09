@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SearchSumsPairsNumbersEqualsX.UI"
-        mc:Ignorable="d" Title="Поиск всех пар чисел, сумма которых равна заданному числу X" WindowStartupLocation="CenterScreen"
-        WindowState="Maximized" Icon="Images/Logotype.png" Background="#FF447784" MinWidth="900" MinHeight="700" Width="900" Height="700" >
+        mc:Ignorable="d" Title="Поиск всех пар чисел, сумма которых равна заданному числу X" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="Images/Logotype.png"
+        Background="#FF447784" MinWidth="900" MinHeight="700" Width="900" Height="700" PreviewMouseMove="DisableSelectionTextInTextBoxes" >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
@@ -29,8 +29,8 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Image Grid.Column="1" Source="Images/Logotype.png" Margin="0,5,5,5" />
-            <Label Grid.Column="2" Content="Поиск всех пар чисел, сумма которых равна заданному числу X" VerticalAlignment="Center"
-                   HorizontalAlignment="Center" FontSize="20" Foreground="White" FontWeight="DemiBold" Margin="5,0,0,0" />
+            <Label Grid.Column="2" Content="Поиск всех пар чисел, сумма которых равна заданному числу X" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"
+                   Foreground="White" FontWeight="DemiBold" Margin="5,0,0,0" />
         </Grid>
 
         <!-- Исходная коллекция чисел -->
@@ -46,7 +46,9 @@
                 <Label Content="Исходная коллекция чисел:" FontSize="14" FontWeight="DemiBold" VerticalAlignment="Center" />
                 <Separator Grid.Row="1" />
                 <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
-                    <RichTextBox Name="richtextboxSourceCollectionOfNumbers" FontSize="14" BorderThickness="0" />
+                    <TextBox Name="textboxSourceCollectionOfNumbers" FontSize="14" BorderThickness="0" TextWrapping="Wrap" CommandManager.PreviewExecuted="PreviewExecutedCommandCopyCutPaste"
+                             ContextMenu="{x:Null}" PreviewTextInput="PreviewTextInputToMatchMultipleFloatFormat" PreviewKeyDown="PreviewKeyDownToMatchMultipleNumberFormat"
+                             KeyUp="CountNumbersInSourceCollectionByKeyUp" AllowDrop="False" IsUndoEnabled="False" LostFocus="AddingFinalZeroInMultipleNumberFormat" />
                 </ScrollViewer>
                 <Separator Grid.Row="3" />
                 <Grid Grid.Row="4" >
@@ -54,10 +56,9 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <Label Content="Количество чисел в коллекции:" FontSize="14" FontStyle="Italic" Foreground="Green" HorizontalAlignment="Right"
-                           VerticalAlignment="Center" />
-                    <Label Name="labelCountNumbersInSourceCollection" Grid.Column="1" Content="0" FontSize="14" FontStyle="Italic"
-                           FontWeight="DemiBold" Margin="0,0,5,0" Foreground="Green" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <Label Content="Количество чисел в коллекции:" FontSize="14" FontStyle="Italic" Foreground="Green" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                    <Label Name="labelCountNumbersInSourceCollection" Grid.Column="1" Content="0" FontSize="14" FontStyle="Italic" FontWeight="DemiBold" Margin="0,0,5,0" Foreground="Green"
+                           HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Grid>
             </Grid>
         </Border>
@@ -77,24 +78,17 @@
                     <ColumnDefinition Width="3*" />
                     <ColumnDefinition Width="1*" />
                 </Grid.ColumnDefinitions>
-                <Label Grid.ColumnSpan="4" Content="Загрузка тестовых сценариев:" FontSize="14" FontWeight="DemiBold" VerticalAlignment="Center"
-                       Margin="0,0,0,2" />
+                <Label Grid.ColumnSpan="4" Content="Загрузка тестовых сценариев:" FontSize="14" FontWeight="DemiBold" VerticalAlignment="Center" Margin="0,0,0,2" />
                 <Separator Grid.Row="1" Grid.ColumnSpan="4" Margin="0,0,0,5" />
-                <Button Name="buttonLoadTestScenarioNumberOne" Grid.Row="2" Grid.Column="1" Content="Загрузить тестовый сценарий №1"
-                        Margin="5,0,5,5" />
-                <Image Name="imageHelpTestScenarioNumberOne" Grid.Row="2" Grid.Column="2" Source="Images/HelpButtonForMouseLeave.png"
-                       HorizontalAlignment="Left" Margin="15,0,0,5" MouseLeave="SetImageOnHelpTestScenario"
-                       MouseEnter="SetImageOnHelpTestScenario" />
-                <Button Name="buttonLoadTestScenarioNumberTwo" Grid.Row="3" Grid.Column="1" Content="Загрузить тестовый сценарий №2"
-                        Margin="5,0,5,5" />
-                <Image Name="imageHelpTestScenarioNumberTwo" Grid.Row="3" Grid.Column="2" Source="Images/HelpButtonForMouseLeave.png"
-                       HorizontalAlignment="Left" Margin="15,0,0,5" MouseLeave="SetImageOnHelpTestScenario"
-                       MouseEnter="SetImageOnHelpTestScenario" />
-                <Button Name="buttonLoadTestScenarioNumberThree" Grid.Row="4" Grid.Column="1" Content="Загрузить тестовый сценарий №3"
-                        Margin="5,0,5,5" />
-                <Image Name="imageHelpTestScenarioNumberThree" Grid.Row="4" Grid.Column="2" Source="Images/HelpButtonForMouseLeave.png"
-                       HorizontalAlignment="Left" Margin="15,0,0,5" MouseEnter="SetImageOnHelpTestScenario"
-                       MouseLeave="SetImageOnHelpTestScenario" />
+                <Button Name="buttonLoadTestScenarioNumberOne" Grid.Row="2" Grid.Column="1" Content="Загрузить тестовый сценарий №1" Margin="5,0,5,5" />
+                <Image Name="imageHelpTestScenarioNumberOne" Grid.Row="2" Grid.Column="2" Source="Images/HelpButtonForMouseLeave.png" HorizontalAlignment="Left" Margin="15,0,0,5"
+                       MouseLeave="SetImageOnHelpTestScenario" MouseEnter="SetImageOnHelpTestScenario" MaxHeight="32" MaxWidth="32" />
+                <Button Name="buttonLoadTestScenarioNumberTwo" Grid.Row="3" Grid.Column="1" Content="Загрузить тестовый сценарий №2" Margin="5,0,5,5" />
+                <Image Name="imageHelpTestScenarioNumberTwo" Grid.Row="3" Grid.Column="2" Source="Images/HelpButtonForMouseLeave.png" HorizontalAlignment="Left" Margin="15,0,0,5"
+                       MouseLeave="SetImageOnHelpTestScenario" MouseEnter="SetImageOnHelpTestScenario" MaxHeight="32" MaxWidth="32" />
+                <Button Name="buttonLoadTestScenarioNumberThree" Grid.Row="4" Grid.Column="1" Content="Загрузить тестовый сценарий №3" Margin="5,0,5,5" />
+                <Image Name="imageHelpTestScenarioNumberThree" Grid.Row="4" Grid.Column="2" Source="Images/HelpButtonForMouseLeave.png" HorizontalAlignment="Left" Margin="15,0,0,5"
+                       MouseEnter="SetImageOnHelpTestScenario" MouseLeave="SetImageOnHelpTestScenario" MaxHeight="32" MaxWidth="32" />
             </Grid>
         </Border>
 
@@ -120,10 +114,12 @@
                     </Grid.ColumnDefinitions>
                     <Label Content="Минимальное число:" Margin="5,0,0,0" VerticalAlignment="Center" />
                     <TextBox Grid.Column="1" Name="textboxMinimumRandomValue" Text="-10" VerticalAlignment="Center" Margin="5,0,0,0" MaxLength="9" PreviewTextInput="PreviewTextInputToMatchFloatFormat"
-                             PreviewKeyDown="PreviewKeyDownToMatchNumberFormat" CommandManager.PreviewExecuted="PreviewExecutedCommandCopyCutPaste" ContextMenu="{x:Null}" />
+                             PreviewKeyDown="PreviewKeyDownToMatchNumberFormat" CommandManager.PreviewExecuted="PreviewExecutedCommandCopyCutPaste" ContextMenu="{x:Null}" AllowDrop="False"
+                             IsUndoEnabled="False" LostFocus="AddingFinalZeroInNumberFormat" />
                     <Label Grid.Column="2" Content="Максимальное число:" Margin="5,0,0,0" VerticalAlignment="Center" />
                     <TextBox Grid.Column="3" Name="textboxMaximumRandomValue" Text="10" VerticalAlignment="Center" Margin="5,0,5,0" MaxLength="9" PreviewTextInput="PreviewTextInputToMatchFloatFormat"
-                             PreviewKeyDown="PreviewKeyDownToMatchNumberFormat" CommandManager.PreviewExecuted="PreviewExecutedCommandCopyCutPaste" ContextMenu="{x:Null}" />
+                             PreviewKeyDown="PreviewKeyDownToMatchNumberFormat" CommandManager.PreviewExecuted="PreviewExecutedCommandCopyCutPaste" ContextMenu="{x:Null}" AllowDrop="False"
+                             IsUndoEnabled="False" LostFocus="AddingFinalZeroInNumberFormat" />
                 </Grid>
                 <Grid Grid.Row="3">
                     <Grid.ColumnDefinitions>
@@ -133,17 +129,15 @@
                     <Label Content="Количество псевдослучайных чисел в коллекции:" Margin="5,0,0,0" VerticalAlignment="Center" />
                     <TextBox Grid.Column="1" Name="textboxCountNumbersInRandomCollection" Text="500" VerticalAlignment="Center" Margin="5,0,5,0" MaxLength="9"
                              PreviewTextInput="PreviewTextInputToMatchIntegerFormat" PreviewKeyDown="PreviewKeyDownToMatchNumberFormat" CommandManager.PreviewExecuted="PreviewExecutedCommandCopyCutPaste"
-                             ContextMenu="{x:Null}" />
+                             ContextMenu="{x:Null}" AllowDrop="False" IsUndoEnabled="False" />
                 </Grid>
                 <Grid Grid.Row="4">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <RadioButton Name="radiobuttonOnlyIntegers" GroupName="CreateRandomCollection" Content="Целочисленная коллекция"
-                                 Margin="10,-5,0,0" VerticalAlignment="Center" IsChecked="True" />
-                    <RadioButton Name="radiobuttonOnlyFloat" Grid.Column="1" GroupName="CreateRandomCollection" Content="Числа с плавающей точкой"
-                                 Margin="10,-5,10,0" VerticalAlignment="Center" />
+                    <RadioButton Name="radiobuttonOnlyIntegers" GroupName="CreateRandomCollection" Content="Целочисленная коллекция" Margin="10,-5,0,0" VerticalAlignment="Center" IsChecked="True" />
+                    <RadioButton Name="radiobuttonOnlyFloat" Grid.Column="1" GroupName="CreateRandomCollection" Content="Числа с плавающей точкой" Margin="10,-5,10,0" VerticalAlignment="Center" />
                 </Grid>
                 <Grid Grid.Row="5">
                     <Grid.ColumnDefinitions>
@@ -151,7 +145,7 @@
                         <ColumnDefinition Width="3*" />
                         <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
-                    <Button Name="buttonCreateRandomCollection" Grid.Column="1" Content="Сформировать коллекцию" Margin="5,0,5,5" />
+                    <Button Name="buttonCreateRandomCollection" Grid.Column="1" Content="Сформировать коллекцию" Margin="5,0,5,5" Click="CreateRandomCollection" />
                 </Grid>
             </Grid>
         </Border>
@@ -171,11 +165,11 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <TextBox Name="textboxPredeterminatedNumberX" Text="25" VerticalAlignment="Center" Margin="5,0,5,0" FontWeight="DemiBold"
-                             FontSize="30" MaxLength="9" PreviewTextInput="PreviewTextInputToMatchFloatFormat" PreviewKeyDown="PreviewKeyDownToMatchNumberFormat"
-                             CommandManager.PreviewExecuted="PreviewExecutedCommandCopyCutPaste" ContextMenu="{x:Null}" />
-                    <Button Name="buttonSearchSumsPairsNumbersEqualsX" Grid.Column="1" Content="ПОИСК" Margin="0,5,5,5" VerticalAlignment="Center"
-                            Padding="20,11,20,11" FontWeight="DemiBold" FontSize="14" Foreground="Blue" />
+                    <TextBox Name="textboxPredeterminatedNumberX" Text="5" VerticalAlignment="Center" Margin="5,0,5,0" FontWeight="DemiBold" FontSize="30" MaxLength="9"
+                             PreviewTextInput="PreviewTextInputToMatchFloatFormat" PreviewKeyDown="PreviewKeyDownToMatchNumberFormat" CommandManager.PreviewExecuted="PreviewExecutedCommandCopyCutPaste"
+                             ContextMenu="{x:Null}" AllowDrop="False" IsUndoEnabled="False" LostFocus="AddingFinalZeroInNumberFormat" />
+                    <Button Name="buttonSearchSumsPairsNumbersEqualsX" Grid.Column="1" Content="ПОИСК" Margin="0,5,5,5" VerticalAlignment="Center" Padding="20,11,20,11" FontWeight="DemiBold"
+                            FontSize="14" Foreground="Blue" />
                 </Grid>
             </Grid>
         </Border>
@@ -207,14 +201,12 @@
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <Label Content="Время поиска:" FontSize="14" FontStyle="Italic" Foreground="Green" HorizontalAlignment="Right"
-                           VerticalAlignment="Center" />
-                    <Label Name="labelSearchTime" Grid.Column="1" Content="00.00.00.000" FontSize="14" FontStyle="Italic" FontWeight="DemiBold"
-                           Margin="0,0,0,0" Foreground="Green" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    <Label Grid.Column="3" Content="Количество найденных пар чисел:" FontSize="14" FontStyle="Italic" Foreground="Green"
-                           HorizontalAlignment="Right" VerticalAlignment="Center" />
-                    <Label Name="labelNumberFoundPairsNumbers" Grid.Column="4" Content="0" FontSize="14" FontStyle="Italic" FontWeight="DemiBold"
-                           Margin="0,0,5,0" Foreground="Green" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <Label Content="Время поиска:" FontSize="14" FontStyle="Italic" Foreground="Green" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                    <Label Name="labelSearchTime" Grid.Column="1" Content="00.00.00.000" FontSize="14" FontStyle="Italic" FontWeight="DemiBold" Margin="0,0,0,0" Foreground="Green"
+                           HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <Label Grid.Column="3" Content="Количество найденных пар чисел:" FontSize="14" FontStyle="Italic" Foreground="Green" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                    <Label Name="labelNumberFoundPairsNumbers" Grid.Column="4" Content="0" FontSize="14" FontStyle="Italic" FontWeight="DemiBold" Margin="0,0,5,0" Foreground="Green"
+                           HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Grid>
             </Grid>
         </Border>

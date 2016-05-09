@@ -136,6 +136,12 @@
     <Resource Include="Images\HelpButtonForMouseEnter.png" />
     <Resource Include="Images\HelpButtonForMouseLeave.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SearchSumsPairsNumbersEqualsX.Logic\SearchSumsPairsNumbersEqualsX.Logic.csproj">
+      <Project>{fe2df3b2-1ceb-4d19-80aa-1855197b84b3}</Project>
+      <Name>SearchSumsPairsNumbersEqualsX.Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
