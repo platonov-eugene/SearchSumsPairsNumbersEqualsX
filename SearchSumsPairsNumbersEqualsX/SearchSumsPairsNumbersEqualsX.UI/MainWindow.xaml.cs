@@ -42,6 +42,15 @@ namespace SearchSumsPairsNumbersEqualsX.UI
                 image.Source = new BitmapImage(new Uri(@"Images/HelpButtonForMouseLeave.png", UriKind.Relative));
         }
 
+        private void DisableSelectionTextInTextBoxes(object sender, MouseEventArgs e)
+        {
+            textboxSourceCollectionOfNumbers.SelectionLength = 0;
+            textboxMinimumRandomValue.SelectionLength = 0;
+            textboxMaximumRandomValue.SelectionLength = 0;
+            textboxCountNumbersInRandomCollection.SelectionLength = 0;
+            textboxPredeterminatedNumberX.SelectionLength = 0;
+        }
+
         private void PreviewExecutedCommandCopyCutPaste(object sender, ExecutedRoutedEventArgs e)
         {
             if (e.Command == ApplicationCommands.Copy || e.Command == ApplicationCommands.Cut || e.Command == ApplicationCommands.Paste)
@@ -158,15 +167,6 @@ namespace SearchSumsPairsNumbersEqualsX.UI
             CountNumbersInSourceCollection(sender);
         }
 
-        private void DisableSelectionTextInTextBoxes(object sender, MouseEventArgs e)
-        {
-            textboxSourceCollectionOfNumbers.SelectionLength = 0;
-            textboxMinimumRandomValue.SelectionLength = 0;
-            textboxMaximumRandomValue.SelectionLength = 0;
-            textboxCountNumbersInRandomCollection.SelectionLength = 0;
-            textboxPredeterminatedNumberX.SelectionLength = 0;
-        }
-
         private void AddingFinalZeroInNumberFormat(object sender, RoutedEventArgs e)
         {
             TextBox textBox = sender as TextBox;
@@ -208,23 +208,157 @@ namespace SearchSumsPairsNumbersEqualsX.UI
                 textboxMaximumRandomValue.BorderBrush = Brushes.Red;
             else if (textboxCountNumbersInRandomCollection.Text.Length == 0)
                 textboxCountNumbersInRandomCollection.BorderBrush = Brushes.Red;
-            else if (Convert.ToDouble(textboxMinimumRandomValue.Text, new CultureInfo("en-EN")) > Convert.ToDouble(textboxMaximumRandomValue.Text, new CultureInfo("en-EN")))
+            else if (Convert.ToDecimal(textboxMinimumRandomValue.Text, new CultureInfo("en-EN")) > Convert.ToDecimal(textboxMaximumRandomValue.Text, new CultureInfo("en-EN")))
             {
                 textboxMinimumRandomValue.BorderBrush = Brushes.Red;
                 textboxMaximumRandomValue.BorderBrush = Brushes.Red;
             }
             else
             {
-                this.Cursor = Cursors.Wait;
-                double minimumRandomValue = Convert.ToDouble(textboxMinimumRandomValue.Text, new CultureInfo("en-EN"));
-                double maximumRandomValue = Convert.ToDouble(textboxMaximumRandomValue.Text, new CultureInfo("en-EN"));
+                Cursor = Cursors.Wait;
+                decimal minimumRandomValue = Convert.ToDecimal(textboxMinimumRandomValue.Text, new CultureInfo("en-EN"));
+                decimal maximumRandomValue = Convert.ToDecimal(textboxMaximumRandomValue.Text, new CultureInfo("en-EN"));
                 int countNumbers = Convert.ToInt32(textboxCountNumbersInRandomCollection.Text, new CultureInfo("en-EN"));
                 bool onlyIntegers = radiobuttonOnlyIntegers.IsChecked == true;
 
                 textboxSourceCollectionOfNumbers.Text = new Random().CreateStringRandomNumbers(minimumRandomValue, maximumRandomValue, countNumbers, onlyIntegers);
                 CountNumbersInSourceCollection(textboxSourceCollectionOfNumbers);
-                this.Cursor = Cursors.Arrow;
+                ClearAreaFoundPairsNumbers();
+                textboxSourceCollectionOfNumbers.Focus();
+                Cursor = Cursors.Arrow;
             }
+        }
+
+        private void ClearAreaFoundPairsNumbers()
+        {
+            stackpanelFoundPairsNumbers.Children.Clear();
+            labelNumberFoundPairsNumbers.Content = 0;
+        }
+
+        private void SearchSumsPairsNumbersEqualsX(object sender, RoutedEventArgs e)
+        {
+            textboxPredeterminatedNumberX.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFABADB3"));
+            textboxSourceCollectionOfNumbers.BorderBrush = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFABADB3"));
+
+            if (textboxPredeterminatedNumberX.Text.Length == 0)
+                textboxPredeterminatedNumberX.BorderBrush = Brushes.Red;
+            else if (textboxSourceCollectionOfNumbers.Text.Length == 0)
+                textboxSourceCollectionOfNumbers.BorderBrush = Brushes.Red;
+            else
+            {
+                Cursor = Cursors.Wait;
+                ClearAreaFoundPairsNumbers();
+
+                SearchEngineSumsPairsNumbers searchEngineSumsPairsNumbers = new SearchEngineSumsPairsNumbers(textboxSourceCollectionOfNumbers.Text);
+                List<Tuple<decimal, decimal>> foundPairsNumbers = searchEngineSumsPairsNumbers.EqualsX(textboxPredeterminatedNumberX.Text);
+
+                foreach (Tuple<decimal, decimal> sumPairsNumbers in foundPairsNumbers)
+                    stackpanelFoundPairsNumbers.Children.Add(CreateUserControlForSumPairsNumbers(sumPairsNumbers.Item1, sumPairsNumbers.Item2));
+
+                labelNumberFoundPairsNumbers.Content = foundPairsNumbers.Count;
+                Cursor = Cursors.Arrow;
+            }
+        }
+
+        private Border CreateUserControlForSumPairsNumbers(decimal firstNumber, decimal secondNumber)
+        {
+            Border border = new Border();
+            border.BorderBrush = Brushes.Green;
+            border.BorderThickness = new Thickness(2);
+            border.Margin = new Thickness(5, 5, 5, 5);
+            border.CornerRadius = new CornerRadius(5);
+            border.MinWidth = 100;
+
+            Grid grid = new Grid();
+            grid.Margin = new Thickness(5, 5, 5, 5);
+            RowDefinition rowOneDefinition = new RowDefinition();
+            rowOneDefinition.Height = new GridLength(1, GridUnitType.Star);
+            grid.RowDefinitions.Add(rowOneDefinition);
+            RowDefinition rowTwoDefinition = new RowDefinition();
+            rowTwoDefinition.Height = new GridLength(0.5, GridUnitType.Star);
+            grid.RowDefinitions.Add(rowTwoDefinition);
+            RowDefinition rowThreeDefinition = new RowDefinition();
+            rowThreeDefinition.Height = new GridLength(1, GridUnitType.Star);
+            grid.RowDefinitions.Add(rowThreeDefinition);
+            RowDefinition rowFourDefinition = new RowDefinition();
+            rowFourDefinition.Height = new GridLength(1, GridUnitType.Star);
+            grid.RowDefinitions.Add(rowFourDefinition);
+
+            TextBlock textblockFirstNumber = new TextBlock();
+            textblockFirstNumber.Text = firstNumber >= 0 ? "  " + firstNumber.ToString(new CultureInfo("en-EN")) : " " + firstNumber.ToString(new CultureInfo("en-EN"));
+            textblockFirstNumber.FontFamily = new FontFamily("Courier New");
+            textblockFirstNumber.VerticalAlignment = VerticalAlignment.Center;
+            textblockFirstNumber.FontSize = 18;
+            textblockFirstNumber.FontWeight = FontWeights.DemiBold;
+            Grid.SetRow(textblockFirstNumber, 0);
+            grid.Children.Add(textblockFirstNumber);
+
+            TextBlock textblockPlusSign = new TextBlock();
+            textblockPlusSign.Text = "+";
+            textblockPlusSign.FontFamily = new FontFamily("Courier New");
+            textblockPlusSign.VerticalAlignment = VerticalAlignment.Center;
+            textblockPlusSign.FontSize = 18;
+            textblockPlusSign.FontWeight = FontWeights.DemiBold;
+            Grid.SetRow(textblockPlusSign, 1);
+            grid.Children.Add(textblockPlusSign);
+
+            TextBlock textblockSecondNumber = new TextBlock();
+            textblockSecondNumber.Text = secondNumber >= 0 ? "  " + secondNumber.ToString(new CultureInfo("en-EN")) : " " + secondNumber.ToString(new CultureInfo("en-EN"));
+            textblockSecondNumber.FontFamily = new FontFamily("Courier New");
+            textblockSecondNumber.VerticalAlignment = VerticalAlignment.Center;
+            textblockSecondNumber.FontSize = 18;
+            textblockSecondNumber.FontWeight = FontWeights.DemiBold;
+            Grid.SetRow(textblockSecondNumber, 2);
+            grid.Children.Add(textblockSecondNumber);
+
+            TextBlock textblockResult = new TextBlock();
+            textblockResult.Text = "= " + textboxPredeterminatedNumberX.Text;
+            textblockResult.FontFamily = new FontFamily("Courier New");
+            textblockResult.Foreground = Brushes.Red;
+            textblockResult.VerticalAlignment = VerticalAlignment.Center;
+            textblockResult.FontSize = 18;
+            textblockResult.FontWeight = FontWeights.DemiBold;
+            Grid.SetRow(textblockResult, 3);
+            grid.Children.Add(textblockResult);
+            
+            border.Child = grid;
+            return border;
+        }
+
+        private void LoadTestScenarioNumberOne(object sender, RoutedEventArgs e)
+        {
+            Cursor = Cursors.Wait;
+            textboxSourceCollectionOfNumbers.Text = "10 9 8 7 6 5 4 3 2 1 ";
+            textboxPredeterminatedNumberX.Text = "5";
+
+            CountNumbersInSourceCollection(textboxSourceCollectionOfNumbers);
+            ClearAreaFoundPairsNumbers();
+            textboxSourceCollectionOfNumbers.Focus();
+            Cursor = Cursors.Arrow;
+        }
+
+        private void LoadTestScenarioNumberTwo(object sender, RoutedEventArgs e)
+        {
+            Cursor = Cursors.Wait;
+            textboxSourceCollectionOfNumbers.Text = "5 4 3 2 1 0 -1 -2 -3 -4 -5 ";
+            textboxPredeterminatedNumberX.Text = "3";
+
+            CountNumbersInSourceCollection(textboxSourceCollectionOfNumbers);
+            ClearAreaFoundPairsNumbers();
+            textboxSourceCollectionOfNumbers.Focus();
+            Cursor = Cursors.Arrow;
+        }
+
+        private void LoadTestScenarioNumberThree(object sender, RoutedEventArgs e)
+        {
+            Cursor = Cursors.Wait;
+            textboxSourceCollectionOfNumbers.Text = "0.5 0.25 0.75 0.5 1 0 1.25 -0.25 1.5 -0.5 ";
+            textboxPredeterminatedNumberX.Text = "1";
+
+            CountNumbersInSourceCollection(textboxSourceCollectionOfNumbers);
+            ClearAreaFoundPairsNumbers();
+            textboxSourceCollectionOfNumbers.Focus();
+            Cursor = Cursors.Arrow;
         }
     }
 }

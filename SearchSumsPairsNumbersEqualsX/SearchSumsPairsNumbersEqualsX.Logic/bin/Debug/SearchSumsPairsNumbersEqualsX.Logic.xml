@@ -6,37 +6,60 @@
     <members>
         <member name="T:SearchSumsPairsNumbersEqualsX.Logic.RandomExtensions">
             <summary>
-            
+            Класс осуществляющий расширение функциональных возможностей класса System.Random
             </summary>
         </member>
-        <member name="M:SearchSumsPairsNumbersEqualsX.Logic.RandomExtensions.NextInteger(System.Random,System.Double,System.Double)">
+        <member name="M:SearchSumsPairsNumbersEqualsX.Logic.RandomExtensions.NextInteger(System.Random,System.Decimal,System.Decimal)">
             <summary>
-            
+            Возвращает случайное целое число в указанном диапазоне
             </summary>
-            <param name="random"></param>
-            <param name="minimumRandomValue"></param>
-            <param name="maximumRandomValue"></param>
-            <returns></returns>
+            <param name="random">Класс System.Random</param>
+            <param name="minimumRandomValue">Минимальное значение заданного диапазона</param>
+            <param name="maximumRandomValue">Максимальное значение заданного диапазона</param>
+            <returns>Случайное целое число в указанном диапазоне</returns>
         </member>
-        <member name="M:SearchSumsPairsNumbersEqualsX.Logic.RandomExtensions.NextDouble(System.Random,System.Double,System.Double)">
+        <member name="M:SearchSumsPairsNumbersEqualsX.Logic.RandomExtensions.NextDecimal(System.Random,System.Decimal,System.Decimal)">
             <summary>
-            
+            Возвращает случайное число с плавающей точкой в указанном диапазоне
             </summary>
-            <param name="random"></param>
-            <param name="minimumRandomValue"></param>
-            <param name="maximumRandomValue"></param>
-            <returns></returns>
+            <param name="random">Класс System.Random</param>
+            <param name="minimumRandomValue">Минимальное значение заданного диапазона</param>
+            <param name="maximumRandomValue">Максимальное значение заданного диапазона</param>
+            <returns>Случайное число с плавающей точкой в указанном диапазоне</returns>
         </member>
-        <member name="M:SearchSumsPairsNumbersEqualsX.Logic.RandomExtensions.CreateStringRandomNumbers(System.Random,System.Double,System.Double,System.Int32,System.Boolean)">
+        <member name="M:SearchSumsPairsNumbersEqualsX.Logic.RandomExtensions.CreateStringRandomNumbers(System.Random,System.Decimal,System.Decimal,System.Int32,System.Boolean)">
             <summary>
-            
+            Возвращает строку случайных чисел в указанном диапазоне разделенных знаком пробела
             </summary>
-            <param name="random"></param>
-            <param name="minimumRandomValue"></param>
-            <param name="maximumRandomValue"></param>
-            <param name="countNumbers"></param>
-            <param name="onlyIntegers"></param>
-            <returns></returns>
+            <param name="random">Класс System.Random</param>
+            <param name="minimumRandomValue">Минимальное значение заданного диапазона</param>
+            <param name="maximumRandomValue">Максимальное значение заданного диапазона</param>
+            <param name="countNumbers">Необходимое количество сформированных случайных чисел</param>
+            <param name="onlyIntegers">Логическое значение указывающее на формирование только целых случайных чисел</param>
+            <returns>Строка случайных чисел в указанном диапазоне разделенных знаком пробела</returns>
+        </member>
+        <member name="T:SearchSumsPairsNumbersEqualsX.Logic.SearchEngineSumsPairsNumbers">
+            <summary>
+            Класс осуществляющий поиск пар чисел по заданным критериям
+            </summary>
+        </member>
+        <member name="F:SearchSumsPairsNumbersEqualsX.Logic.SearchEngineSumsPairsNumbers.collectionOfNumbers">
+            <summary>
+            Коллекция чисел
+            </summary>
+        </member>
+        <member name="M:SearchSumsPairsNumbersEqualsX.Logic.SearchEngineSumsPairsNumbers.#ctor(System.String)">
+            <summary>
+            Конструктор по умолчанию класса осуществляющего поиск пар чисел по заданным критериям
+            </summary>
+            <param name="sourceCollectionOfNumbers">Строковое представление исходной коллекции чисел разделенных знаками пробела</param>
+        </member>
+        <member name="M:SearchSumsPairsNumbersEqualsX.Logic.SearchEngineSumsPairsNumbers.EqualsX(System.String)">
+            <summary>
+            Возвращает коллекцию пар чисел, сумма которых равна заданному числу X
+            </summary>
+            <param name="stringValueOfX">Заданное число X</param>
+            <returns>Коллекция пар чисел, сумма которых равна заданному числу X</returns>
         </member>
     </members>
 </doc>

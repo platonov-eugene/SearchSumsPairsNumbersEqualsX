@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace SearchSumsPairsNumbersEqualsX.Logic
 {
@@ -14,7 +15,7 @@ namespace SearchSumsPairsNumbersEqualsX.Logic
         /// <param name="minimumRandomValue">Минимальное значение заданного диапазона</param>
         /// <param name="maximumRandomValue">Максимальное значение заданного диапазона</param>
         /// <returns>Случайное целое число в указанном диапазоне</returns>
-        public static double NextInteger(this Random random, double minimumRandomValue, double maximumRandomValue)
+        public static decimal NextInteger(this Random random, decimal minimumRandomValue, decimal maximumRandomValue)
         {
             return random.Next((int)minimumRandomValue, (int)maximumRandomValue);
         }
@@ -26,9 +27,9 @@ namespace SearchSumsPairsNumbersEqualsX.Logic
         /// <param name="minimumRandomValue">Минимальное значение заданного диапазона</param>
         /// <param name="maximumRandomValue">Максимальное значение заданного диапазона</param>
         /// <returns>Случайное число с плавающей точкой в указанном диапазоне</returns>
-        public static double NextDouble(this Random random, double minimumRandomValue, double maximumRandomValue)
+        public static decimal NextDecimal(this Random random, decimal minimumRandomValue, decimal maximumRandomValue)
         {
-            return random.NextDouble() * (maximumRandomValue - minimumRandomValue) + minimumRandomValue;
+            return Convert.ToDecimal(random.NextDouble()) * (maximumRandomValue - minimumRandomValue) + minimumRandomValue;
         }
 
         /// <summary>
@@ -40,7 +41,7 @@ namespace SearchSumsPairsNumbersEqualsX.Logic
         /// <param name="countNumbers">Необходимое количество сформированных случайных чисел</param>
         /// <param name="onlyIntegers">Логическое значение указывающее на формирование только целых случайных чисел</param>
         /// <returns>Строка случайных чисел в указанном диапазоне разделенных знаком пробела</returns>
-        public static string CreateStringRandomNumbers(this Random random, double minimumRandomValue, double maximumRandomValue, int countNumbers, bool onlyIntegers = true)
+        public static string CreateStringRandomNumbers(this Random random, decimal minimumRandomValue, decimal maximumRandomValue, int countNumbers, bool onlyIntegers = true)
         {
             string stringRandomNumbers = string.Empty;
 
@@ -48,7 +49,7 @@ namespace SearchSumsPairsNumbersEqualsX.Logic
                 if (onlyIntegers)
                     stringRandomNumbers += NextInteger(random, minimumRandomValue, maximumRandomValue) + " ";
                 else
-                    stringRandomNumbers += Math.Round(NextDouble(random, minimumRandomValue, maximumRandomValue), 2) + " ";
+                    stringRandomNumbers += Math.Round(NextDecimal(random, minimumRandomValue, maximumRandomValue), 2).ToString(new CultureInfo("en-EN")) + " ";
 
             return stringRandomNumbers;
         }
