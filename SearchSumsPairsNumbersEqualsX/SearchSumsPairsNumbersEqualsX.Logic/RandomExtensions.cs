@@ -49,7 +49,7 @@ namespace SearchSumsPairsNumbersEqualsX.Logic
                 if (onlyIntegers)
                     stringRandomNumbers += NextInteger(random, minimumRandomValue, maximumRandomValue) + " ";
                 else
-                    stringRandomNumbers += Math.Round(NextDecimal(random, minimumRandomValue, maximumRandomValue), 2).ToString(new CultureInfo("en-EN")) + " ";
+                    stringRandomNumbers += Math.Round(NextDecimal(random, minimumRandomValue, maximumRandomValue), 2).ToString(new CultureInfo("en-US")) + " ";
 
             return stringRandomNumbers;
         }

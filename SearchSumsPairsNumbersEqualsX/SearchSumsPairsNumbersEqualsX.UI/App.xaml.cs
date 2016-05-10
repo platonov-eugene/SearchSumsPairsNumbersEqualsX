@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 
 namespace SearchSumsPairsNumbersEqualsX.UI
 {
     /// <summary>
-    /// Логика взаимодействия для App.xaml
+    /// Класс приложения Windows Presentation Foundation
     /// </summary>
     public partial class App : Application
     {
+        private void ApplicationDispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+        {
+            MessageBox.Show(e.Exception.Message, "Необработанное исключение приложения", MessageBoxButton.OK, MessageBoxImage.Error);
+            e.Handled = true;
+        }
     }
 }

@@ -21,7 +21,7 @@ namespace SearchSumsPairsNumbersEqualsX.Logic
         /// <param name="sourceCollectionOfNumbers">Строковое представление исходной коллекции чисел разделенных знаками пробела</param>
         public SearchEngineSumsPairsNumbers(string sourceCollectionOfNumbers)
         {
-            collectionOfNumbers = sourceCollectionOfNumbers.Split(' ').Where(item => item != string.Empty).ToList().ConvertAll(item => Convert.ToDecimal(item, new CultureInfo("en-EN")));
+            collectionOfNumbers = sourceCollectionOfNumbers.Split(' ').Where(item => item != string.Empty).ToList().ConvertAll(item => Convert.ToDecimal(item, new CultureInfo("en-US")));
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace SearchSumsPairsNumbersEqualsX.Logic
         public List<Tuple<decimal, decimal>> EqualsX(string stringValueOfX)
         {
             List<Tuple<decimal, decimal>> foundPairsNumbers = new List<Tuple<decimal, decimal>>();
-            decimal predeterminatedNumberX = Convert.ToDecimal(stringValueOfX, new CultureInfo("en-EN"));
+            decimal predeterminatedNumberX = Convert.ToDecimal(stringValueOfX, new CultureInfo("en-US"));
 
             collectionOfNumbers.Sort();
 

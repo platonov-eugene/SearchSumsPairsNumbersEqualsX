@@ -6,7 +6,7 @@
     <members>
         <member name="T:SearchSumsPairsNumbersEqualsX.UI.App">
             <summary>
-            Логика взаимодействия для App.xaml
+            Класс приложения Windows Presentation Foundation
             </summary>
             <summary>
             App
@@ -32,7 +32,7 @@
         </member>
         <member name="M:SearchSumsPairsNumbersEqualsX.UI.MainWindow.#ctor">
             <summary>
-            Конструктор формы приложения по умолчанию
+            Конструктор по умолчанию формы приложения
             </summary>
         </member>
         <member name="M:SearchSumsPairsNumbersEqualsX.UI.MainWindow.InitializeComponent">

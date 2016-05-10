@@ -18,7 +18,7 @@ namespace SearchSumsPairsNumbersEqualsX.UI
     public partial class MainWindow : Window
     {
         /// <summary>
-        /// Конструктор формы приложения по умолчанию
+        /// Конструктор по умолчанию формы приложения
         /// </summary>
         public MainWindow()
         {
@@ -322,7 +322,7 @@ namespace SearchSumsPairsNumbersEqualsX.UI
                 textboxMaximumRandomValue.BorderBrush = Brushes.Red;
             else if (textboxCountNumbersInRandomCollection.Text.Length == 0)
                 textboxCountNumbersInRandomCollection.BorderBrush = Brushes.Red;
-            else if (Convert.ToDecimal(textboxMinimumRandomValue.Text, new CultureInfo("en-EN")) > Convert.ToDecimal(textboxMaximumRandomValue.Text, new CultureInfo("en-EN")))
+            else if (Convert.ToDecimal(textboxMinimumRandomValue.Text, new CultureInfo("en-US")) > Convert.ToDecimal(textboxMaximumRandomValue.Text, new CultureInfo("en-US")))
             {
                 textboxMinimumRandomValue.BorderBrush = Brushes.Red;
                 textboxMaximumRandomValue.BorderBrush = Brushes.Red;
@@ -330,9 +330,9 @@ namespace SearchSumsPairsNumbersEqualsX.UI
             else
             {
                 Cursor = Cursors.Wait;
-                decimal minimumRandomValue = Convert.ToDecimal(textboxMinimumRandomValue.Text, new CultureInfo("en-EN"));
-                decimal maximumRandomValue = Convert.ToDecimal(textboxMaximumRandomValue.Text, new CultureInfo("en-EN"));
-                int countNumbers = Convert.ToInt32(textboxCountNumbersInRandomCollection.Text, new CultureInfo("en-EN"));
+                decimal minimumRandomValue = Convert.ToDecimal(textboxMinimumRandomValue.Text, new CultureInfo("en-US"));
+                decimal maximumRandomValue = Convert.ToDecimal(textboxMaximumRandomValue.Text, new CultureInfo("en-US"));
+                int countNumbers = Convert.ToInt32(textboxCountNumbersInRandomCollection.Text, new CultureInfo("en-US"));
                 bool onlyIntegers = radiobuttonOnlyIntegers.IsChecked == true;
 
                 textboxSourceCollectionOfNumbers.Text = new Random().CreateStringRandomNumbers(minimumRandomValue, maximumRandomValue, countNumbers, onlyIntegers);
@@ -413,7 +413,7 @@ namespace SearchSumsPairsNumbersEqualsX.UI
             grid.RowDefinitions.Add(rowFourDefinition);
 
             TextBlock textblockFirstNumber = new TextBlock();
-            textblockFirstNumber.Text = firstNumber >= 0 ? "  " + firstNumber.ToString(new CultureInfo("en-EN")) : " " + firstNumber.ToString(new CultureInfo("en-EN"));
+            textblockFirstNumber.Text = firstNumber >= 0 ? "  " + firstNumber.ToString(new CultureInfo("en-US")) : " " + firstNumber.ToString(new CultureInfo("en-US"));
             textblockFirstNumber.FontFamily = new FontFamily("Courier New");
             textblockFirstNumber.VerticalAlignment = VerticalAlignment.Center;
             textblockFirstNumber.FontSize = 18;
@@ -431,7 +431,7 @@ namespace SearchSumsPairsNumbersEqualsX.UI
             grid.Children.Add(textblockPlusSign);
 
             TextBlock textblockSecondNumber = new TextBlock();
-            textblockSecondNumber.Text = secondNumber >= 0 ? "  " + secondNumber.ToString(new CultureInfo("en-EN")) : " " + secondNumber.ToString(new CultureInfo("en-EN"));
+            textblockSecondNumber.Text = secondNumber >= 0 ? "  " + secondNumber.ToString(new CultureInfo("en-US")) : " " + secondNumber.ToString(new CultureInfo("en-US"));
             textblockSecondNumber.FontFamily = new FontFamily("Courier New");
             textblockSecondNumber.VerticalAlignment = VerticalAlignment.Center;
             textblockSecondNumber.FontSize = 18;

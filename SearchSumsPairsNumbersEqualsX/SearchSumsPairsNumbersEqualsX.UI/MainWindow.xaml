@@ -29,8 +29,8 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Image Grid.Column="1" Source="Images/Logotype.png" Margin="0,5,5,5" />
-            <Label Grid.Column="2" Content="Поиск всех пар чисел, сумма которых равна заданному числу X" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"
-                   Foreground="White" FontWeight="DemiBold" Margin="5,0,0,0" />
+            <Label Grid.Column="2" Content="Поиск всех пар чисел, сумма которых равна заданному числу X" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="White"
+                   FontWeight="DemiBold" Margin="5,0,0,0" />
         </Grid>
 
         <!-- Исходная коллекция чисел -->
@@ -127,7 +127,7 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Label Content="Количество псевдослучайных чисел в коллекции:" Margin="5,0,0,0" VerticalAlignment="Center" />
-                    <TextBox Grid.Column="1" Name="textboxCountNumbersInRandomCollection" Text="500" VerticalAlignment="Center" Margin="5,0,5,0" MaxLength="5"
+                    <TextBox Grid.Column="1" Name="textboxCountNumbersInRandomCollection" Text="500" VerticalAlignment="Center" Margin="5,0,5,0" MaxLength="4"
                              PreviewTextInput="PreviewTextInputToMatchIntegerFormat" PreviewKeyDown="PreviewKeyDownToMatchNumberFormat" CommandManager.PreviewExecuted="PreviewExecutedCommandCopyCutPaste"
                              ContextMenu="{x:Null}" AllowDrop="False" IsUndoEnabled="False" />
                 </Grid>
