@@ -8,3 +8,15 @@
 ##### Структура файла решения:
 1. Проект SearchSumsPairsNumbersEqualsX.Logic;
 2. Проект SearchSumsPairsNumbersEqualsX.UI.
+
+##### Скриншоты приложения:
+<img src="https://raw.githubusercontent.com/platonov-eugene/SearchSumsPairsNumbersEqualsX/master/Screenshots/Screenshot%20%E2%84%961.png" width="443" height="346" />
+
+<img src="https://raw.githubusercontent.com/platonov-eugene/SearchSumsPairsNumbersEqualsX/master/Screenshots/Screenshot%20%E2%84%962.png" width="443" height="346" />
+
+<img src="https://raw.githubusercontent.com/platonov-eugene/SearchSumsPairsNumbersEqualsX/master/Screenshots/Screenshot%20%E2%84%963.png" width="443" height="346" />
+
+##### Загрузка приложения:
+<a href="https://github.com/platonov-eugene/SearchSumsPairsNumbersEqualsX/raw/master/SearchSumsPairsNumbersEqualsX/SearchSumsPairsNumbersEqualsX.UI/bin/Debug/SearchSumsPairsNumbersEqualsX.Logic.dll">SearchSumsPairsNumbersEqualsX.Logic.dll</a>
+
+<a href="https://github.com/platonov-eugene/SearchSumsPairsNumbersEqualsX/raw/master/SearchSumsPairsNumbersEqualsX/SearchSumsPairsNumbersEqualsX.UI/bin/Debug/SearchSumsPairsNumbersEqualsX.UI.exe">SearchSumsPairsNumbersEqualsX.UI.exe</a>
